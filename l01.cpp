@@ -20,6 +20,7 @@ GLfloat ystep = 1.0f;
 // Dane zmieniajcych siê rozmiarów okna
 GLfloat windowWidth;
 GLfloat windowHeight;
+
 GLfloat rotationAngle = 45.0f;
 
 ///////////////////////////////////////////////////////////
