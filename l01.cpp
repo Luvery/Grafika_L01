@@ -20,6 +20,7 @@ GLfloat ystep = 1.0f;
 // Dane zmieniajcych siê rozmiarów okna
 GLfloat windowWidth;
 GLfloat windowHeight;
+GLfloat rotationAngle = 45.0f;
 
 ///////////////////////////////////////////////////////////
 // Wywo³ywana w celu przerysowania sceny
@@ -30,7 +31,6 @@ void RenderScene(void) {
 	glLoadIdentity();
 	glPushMatrix();
 	glTranslatef(polyX, polyY, 0.0f);
-	GLfloat rotationAngle = 45.0f;
 	glRotatef(rotationAngle, 0.0f, 0.0f, -1.0f);
 	glBegin(GL_POLYGON);
 	glColor3f(0.0f, 0.5f, 1.0f);
@@ -46,7 +46,7 @@ void RenderScene(void) {
 	glPopMatrix();
 	// Wys³anie poleceñ do wykonania - !!! dla animacji to jest inne polecenie
 	glutSwapBuffers();
-	rotationAngle += 10.0f;
+	rotationAngle += 1.0f;
 }
 // Wywo³ywana przez bibliotek GLUT w czasie, gdy okno nie
 // jest przesuwane ani nie jest zmieniana jego wielkoœæ
