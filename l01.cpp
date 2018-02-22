@@ -21,7 +21,6 @@ GLfloat ystep = 1.0f;
 GLfloat windowWidth;
 GLfloat windowHeight;
 
-
 ///////////////////////////////////////////////////////////
 // Wywo³ywana w celu przerysowania sceny
 void RenderScene(void) {
@@ -45,9 +44,7 @@ void RenderScene(void) {
 
 	// Wys³anie poleceñ do wykonania - !!! dla animacji to jest inne polecenie
 	glutSwapBuffers();
-
 }
-///////////////////////////////////////////////////////////
 // Wywo³ywana przez bibliotek GLUT w czasie, gdy okno nie
 // jest przesuwane ani nie jest zmieniana jego wielkoœæ
 void TimerFunction(int value) {
