@@ -17,10 +17,12 @@ void Text()
 	string fullText = text;
 	string str = to_string(points.size() / 2);
 	fullText += str;	
+	glLoadIdentity();
+	glColor3f(0.5f, 1.0f, -0.5f);
 	glRasterPos2f(10, 10);
 	for (int i = 0; i < fullText.length(); i++)
 	{
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, fullText[i]);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, fullText[i]);
 	}
 }
 
@@ -49,7 +51,7 @@ void myDisplay(void)
 	Text();
 
 	glBegin(GL_TRIANGLE_FAN);
-	glColor3f(1.0f, 0.7f, 0.1f);
+	glColor3f(0.3f, 0.7f, 0.1f);
 	for (size_t i = 0; i < points.size(); i += 2)
 	{
 		glVertex2f(points[i], points[i + 1]);
