@@ -1,2 +1,2 @@
-# ZAJECIE 1
-
+# Grafika Komputerowa 
+## Talar Marcin
