@@ -36,7 +36,7 @@ void RenderScene(void) {
 	glBegin(GL_POLYGON);
 	glColor3f(0.0f, 0.5f, 1.0f);
 	glVertex2f(0.0f, 0.0f);
-	int numSegments = 13;
+	int numSegments = 14;
 	GLfloat angle;
 	for (int i = 0; i <= numSegments; i++)
 	{
