@@ -119,9 +119,12 @@ void RenderScene(void)
 	{ -0.5f, 0.0f, 0.3f }, // Lewy przód 4
 	{ -0.25f, 0.0f, 0.6f } , // Przód 5
 	{ -0.25f, 0.0f, -0.6f } , // 2 Tył lewy 6
-	{ 0.25f, 0.0f, -0.6f } ,// 2 Tył prawy 7
+	{ 0.25f, 0.0f, -0.6f },// 2 Tył prawy 7
 	{ 0.25f, 0.0f, 0.6f } , // Przód 8
-
+	{ -0.55f, 0.0f, 0.0f }, // Lewy tył 9 nad 1
+	{ 0.55f, 0.0f, 0.0f }, // Prawy tył 10 nad 2
+	{ 0.0f, 0.0f, 0.66f }, // Przód 11 pomiedzy 5 a 8
+	{ 0.f, 0.0f, -0.66f },// Tyl 12 pomiedzy 6 a 7
 	{ 0.0f, 0.0f, 0.0f } };
 	
 							 // Czyszczenie okna aktualnym kolorem czyszczącym
@@ -168,25 +171,69 @@ void RenderScene(void)
 	glVertex3fv(vCorners[5]);
 
 	glTexCoord2f(1.0f, 1.0f);
-	glVertex3fv(vCorners[2]);
+	glVertex3fv(vCorners[10]);
 	glTexCoord2f(0.0f, 0.0f);
 	glVertex3fv(vCorners[3]);
 	glTexCoord2f(0.0f, 1.0f);
 	glVertex3fv(vCorners[5]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[10]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[3]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[2]);
 	
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[8]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[3]);
+
 	glTexCoord2f(1.0f, 1.0f);
 	glVertex3fv(vCorners[1]);
 	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[8]);
+	glVertex3fv(vCorners[4]);
 	glTexCoord2f(0.0f, 1.0f);
-	glVertex3fv(vCorners[7]);
+	glVertex3fv(vCorners[9]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[2]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[10]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[3]);
+	
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[8]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[2]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[2]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[10]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[5]);
 
 	glTexCoord2f(1.0f, 1.0f);
 	glVertex3fv(vCorners[8]);
 	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[5]);
+	glVertex3fv(vCorners[11]);
 	glTexCoord2f(0.0f, 1.0f);
-	glVertex3fv(vCorners[3]);
+	glVertex3fv(vCorners[5]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[6]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[12]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[7]);
+
+
 
 	//Ściany boczne
 	gltGetNormalVector(vCorners[4], vCorners[5], vCorners[0], vNormal);
@@ -198,21 +245,21 @@ void RenderScene(void)
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
-	gltGetNormalVector(vCorners[5], vCorners[3], vCorners[0], vNormal);
+	gltGetNormalVector(vCorners[8], vCorners[3], vCorners[0], vNormal);
 	glNormal3fv(vNormal);
 	glTexCoord2f(0.5f, 1.0f);
-	glVertex3fv(vCorners[5]);
+	glVertex3fv(vCorners[8]);
 	glTexCoord2f(0.0f, 0.0f);
 	glVertex3fv(vCorners[3]);
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
-	gltGetNormalVector(vCorners[3], vCorners[2], vCorners[0], vNormal);
+	gltGetNormalVector(vCorners[3], vCorners[10], vCorners[0], vNormal);
 	glNormal3fv(vNormal);
 	glTexCoord2f(0.5f, 1.0f);
 	glVertex3fv(vCorners[3]);
 	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[2]);
+	glVertex3fv(vCorners[10]);
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
@@ -225,12 +272,12 @@ void RenderScene(void)
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
-	gltGetNormalVector(vCorners[7], vCorners[6], vCorners[0], vNormal);
+	gltGetNormalVector(vCorners[7], vCorners[12], vCorners[0], vNormal);
 	glNormal3fv(vNormal);
 	glTexCoord2f(0.5f, 1.0f);
 	glVertex3fv(vCorners[7]);
 	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[6]);
+	glVertex3fv(vCorners[12]);
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
@@ -243,21 +290,57 @@ void RenderScene(void)
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
-	gltGetNormalVector(vCorners[1], vCorners[4], vCorners[0], vNormal);
+	gltGetNormalVector(vCorners[1], vCorners[9], vCorners[0], vNormal);
 	glNormal3fv(vNormal);
 	glTexCoord2f(0.5f, 1.0f);
 	glVertex3fv(vCorners[1]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[9]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[9], vCorners[4], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[9]);
 	glTexCoord2f(0.0f, 0.0f);
 	glVertex3fv(vCorners[4]);
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 
-	gltGetNormalVector(vCorners[8], vCorners[5], vCorners[0], vNormal);
+	gltGetNormalVector(vCorners[5], vCorners[11], vCorners[0], vNormal);
 	glNormal3fv(vNormal);
 	glTexCoord2f(0.5f, 1.0f);
-	glVertex3fv(vCorners[8]);
-	glTexCoord2f(0.0f, 0.0f);
 	glVertex3fv(vCorners[5]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[11]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+	
+	gltGetNormalVector(vCorners[11], vCorners[8], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[11]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[8]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[10], vCorners[2], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[10]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[2]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[12], vCorners[6], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[12]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[6]);
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 	
