@@ -118,8 +118,8 @@ void RenderScene(void)
 	{ 0.5f, 0.0f, 0.3f }, // Prawy przód 3
 	{ -0.5f, 0.0f, 0.3f }, // Lewy przód 4
 	{ -0.25f, 0.0f, 0.6f } , // Przód 5
-	{ -0.25f, 0.0f, -0.6f } , // 2 Tył lewy 6
-	{ 0.25f, 0.0f, -0.6f },// 2 Tył prawy 7
+	{ -0.25f, 0.0f, -0.6f } , //2 Tył lewy 6
+	{ 0.25f, 0.0f, -0.6f }, //2 Tył prawy 7
 	{ 0.25f, 0.0f, 0.6f } , // Przód 8
 	{ -0.55f, 0.0f, 0.0f }, // Lewy tył 9 nad 1
 	{ 0.55f, 0.0f, 0.0f }, // Prawy tył 10 nad 2
@@ -344,8 +344,7 @@ void RenderScene(void)
 	glTexCoord2f(1.0f, 0.0f);
 	glVertex3fv(vCorners[0]);
 	
-	
-	
+
 	glEnd();
 	// Odtworzenie stanu macierzy
 	glPopMatrix();
