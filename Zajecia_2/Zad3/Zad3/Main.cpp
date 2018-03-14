@@ -113,12 +113,16 @@ void RenderScene(void)
 {
 	GLTVector3 vNormal;
 	GLTVector3 vCorners[15] = { { 0.0f, .80f, 0.0f }, // Góra 0
-	{ -0.5f, 0.0f, -0.50f }, // Lewy tył 1
-	{ -0.5f, 0.0f, -0.50f }, // Lewy tył 2
-//testowy komentarz
-	{ 0.5f, 0.0f, -0.50f }, // Prawy tył 2
-	{ 0.5f, 0.0f, 0.5f }, // Prawy przód 3
-	{ -0.5f, 0.0f, 0.5f } }; // Lewy przód 4
+	{ -0.5f, 0.0f, -.30f }, // Lewy tył 1
+	{ 0.5f, 0.0f, -0.30f }, // Prawy tył 2
+	{ 0.5f, 0.0f, 0.3f }, // Prawy przód 3
+	{ -0.5f, 0.0f, 0.3f }, // Lewy przód 4
+	{ -0.25f, 0.0f, 0.6f } , // Przód 5
+	{ -0.25f, 0.0f, -0.6f } , // 2 Tył lewy 6
+	{ 0.25f, 0.0f, -0.6f } ,// 2 Tył prawy 7
+	{ 0.25f, 0.0f, 0.6f } , // Przód 8
+
+	{ 0.0f, 0.0f, 0.0f } };
 	
 							 // Czyszczenie okna aktualnym kolorem czyszczącym
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -134,58 +138,128 @@ void RenderScene(void)
 	// Podstawa piramidy - dwa trójkąty
 	glNormal3f(0.0f, -1.0f, 0.0f);
 	
+	//Rysowanie podstawy - 5 trójkątów:
 	glTexCoord2f(1.0f, 1.0f);
-	glVertex3fv(vCorners[2]);
+	glVertex3fv(vCorners[1]);
 	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[4]);
+	glVertex3fv(vCorners[5]);
 	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[4]);
+
+	glTexCoord2f(1.0f, 1.0f);
 	glVertex3fv(vCorners[1]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[6]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[6]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[7]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[7]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[2]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
 
 	glTexCoord2f(1.0f, 1.0f);
 	glVertex3fv(vCorners[2]);
-	glTexCoord2f(1.0f, 0.0f);
-	glVertex3fv(vCorners[3]);
-	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[4]);
-
-
-	// Przednia strona
-	gltGetNormalVector(vCorners[0], vCorners[4], vCorners[3], vNormal);
-	glNormal3fv(vNormal);
-	glTexCoord2f(0.5f, 1.0f);
-	glVertex3fv(vCorners[0]);
-	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[4]);
-	glTexCoord2f(1.0f, 0.0f);
-	glVertex3fv(vCorners[3]);
-	// Lewa strona
-	gltGetNormalVector(vCorners[0], vCorners[1], vCorners[4], vNormal);
-	glNormal3fv(vNormal);
-	glTexCoord2f(0.5f, 1.0f);
-	glVertex3fv(vCorners[0]);
-	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[1]);
-	glTexCoord2f(1.0f, 0.0f);
-	glVertex3fv(vCorners[4]);
-	// Tylna strona
-	gltGetNormalVector(vCorners[0], vCorners[2], vCorners[1], vNormal);
-	glNormal3fv(vNormal);
-	glTexCoord2f(0.5f, 1.0f);
-	glVertex3fv(vCorners[0]);
-	glTexCoord2f(0.0f, 0.0f);
-	glVertex3fv(vCorners[2]);
-	glTexCoord2f(1.0f, 0.0f);
-	glVertex3fv(vCorners[1]);
-	// Prawa strona
-	gltGetNormalVector(vCorners[0], vCorners[3], vCorners[2], vNormal);
-	glNormal3fv(vNormal);
-	glTexCoord2f(0.5f, 1.0f);
-	glVertex3fv(vCorners[0]);
 	glTexCoord2f(0.0f, 0.0f);
 	glVertex3fv(vCorners[3]);
-	glTexCoord2f(1.0f, 0.0f);
-	glVertex3fv(vCorners[2]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[5]);
 	
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[1]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[8]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[7]);
+
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3fv(vCorners[8]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3fv(vCorners[3]);
+
+	//Ściany boczne
+	gltGetNormalVector(vCorners[4], vCorners[5], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[4]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[5], vCorners[3], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[5]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[3]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[3], vCorners[2], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[3]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[2]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[2], vCorners[7], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[2]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[7]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[7], vCorners[6], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[7]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[6]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[6], vCorners[1], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[6]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[1]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[1], vCorners[4], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[1]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[4]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
+
+	gltGetNormalVector(vCorners[8], vCorners[5], vCorners[0], vNormal);
+	glNormal3fv(vNormal);
+	glTexCoord2f(0.5f, 1.0f);
+	glVertex3fv(vCorners[8]);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3fv(vCorners[5]);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3fv(vCorners[0]);
 	
 	
 	
