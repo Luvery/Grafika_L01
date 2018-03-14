@@ -115,7 +115,7 @@ void RenderScene(void)
 	GLTVector3 vCorners[15] = { { 0.0f, .80f, 0.0f }, // Góra 0
 	{ -0.5f, 0.0f, -0.50f }, // Lewy tył 1
 	{ -0.5f, 0.0f, -0.50f }, // Lewy tył 2
-
+//testowy komentarz
 	{ 0.5f, 0.0f, -0.50f }, // Prawy tył 2
 	{ 0.5f, 0.0f, 0.5f }, // Prawy przód 3
 	{ -0.5f, 0.0f, 0.5f } }; // Lewy przód 4
