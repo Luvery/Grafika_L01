@@ -127,7 +127,7 @@ void main(int argc, char* argv[]) {
 	glutCreateWindow("Moj pierwszy program w GLUT");
 	glutDisplayFunc(RenderScene);
 	glutReshapeFunc(ChangeSize);
-	glutTimerFunc(3, TimerFunction, 1);
+	glutTimerFunc(33, TimerFunction, 1);
 	SetupRC();
 	glutMainLoop();
 }
