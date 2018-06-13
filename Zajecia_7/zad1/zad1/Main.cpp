@@ -1,6 +1,6 @@
 ﻿
 #include <GL/glut.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include "colors.h"
 //#include "VectorMath.cpp"
 #include <vector>
@@ -26,7 +26,7 @@ enum
 
 // k�t obrotu kuli
 
-GLfloat angle = 0.0;
+float angle = 0.0;
 
 // k�ty obrotu sze�cianu
 
@@ -53,7 +53,7 @@ int button_x, button_y;
 void drawPyramid(GLuint n, GLfloat size, GLenum type, bool drawBase)
 {
 	GLTVector3 topVertice{ 0.0f, +size, 0.0f };
-	GLTVector3 baseCenter{ 0.0f, -size / 2.0, 0.0f };
+	GLTVector3 baseCenter{ 0.0f, -size / 2.0f, 0.0f };
 
 	std::vector<GLTVector3> bottomVertices{ n };
 
@@ -62,7 +62,7 @@ void drawPyramid(GLuint n, GLfloat size, GLenum type, bool drawBase)
 		const GLfloat angle = (GLfloat)i / n * 3.1415926 * 2.0;
 
 		bottomVertices[i][0] = size * sin(angle);
-		bottomVertices[i][1] = -size / 2;
+		bottomVertices[i][1] = -size / 2.0f;
 		bottomVertices[i][2] = size * cos(angle);
 	}
 
@@ -130,9 +130,9 @@ void Display()
 	// z uwagi na celowy brak efekt�w o�wietlenia, obr�t kuli
 	// podkre�la druga kula w wersji "szkieletowej"
 	glPushMatrix();
-	angle += 0.2;
+	angle += 0.9;
 	glRotatef(angle, 1.0, 1.0, 0.0);
-	glColor3fv(Yellow);
+	glColor3fv(DarkSlateGray);
 	if (polygon_offset)
 		glEnable(GL_POLYGON_OFFSET_FILL);
 
